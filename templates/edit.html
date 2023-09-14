@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Note</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="note-form">
+            <h1>Edit Note</h1>
+            <form method="POST">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" value="{{ note[1] }}" required>
+                <textarea id="content" name="content" required>{{ note[2] }}</textarea>
+                <div class="button-group">
+                    <button type="submit" class="save-button">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure Note Web App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="note-form">
+            <h1>Create a Note</h1>
+            <form method="POST">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+                <textarea id="content" name="content" placeholder="Write your note here..." required></textarea>
+                <div class="button-group">
+                    <button type="submit" class="save-button">Save</button>
+                </div>
+            </form>
+        </div>
+        <div class="note-list">
+            <h2>Your Notes</h2>
+            <ul>
+                {% for note in notes %}
+                <li>
+                    <strong>{{ note[1] }}</strong>
+                    <p>{{ note[2] }}</p>
+                    <a href="/edit/{{ note[0] }}">Edit</a>
+                    <a href="/delete/{{ note[0] }}">Delete</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
